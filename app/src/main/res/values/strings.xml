@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Telegram</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings_default_status">online</string>
+    <string name="settings_default_uerName">Yura Petriv</string>
+    <string name="settings_text_account">Account</string>
+    <string name="settings_default_nuber">+905545455410</string>
+    <string name="settings_label_phone_number">Tap to change phone number</string>
+    <string name="settings_default_username">\@galaxy_002</string>
+    <string name="settings_label_login">Username</string>
+    <string name="settings_default_bio"></string>
+    <string name="settings_default_label_bio">Bio</string>
+    <string name="settings_menu_change_name">Edit Name</string>
+    <string name="settings_menu_exit">Log out</string>
+    <string name="cd_register_image">cd_register_image</string>
+    <string name="register_text_enter_code">Enter code</string>
+    <string name="register_text_we_sent">We\'ve sent an SMS with an activation code to on your phone</string>
+    <string name="register_hint_default_code">- - - - - -</string>
+    <string name="register_tittle_your_phone">Your Phone</string>
+    <string name="register_tost_enter_phone">Enter Phone Number</string>
+    <string name="cd_register_btn_next">cd_register_btn_next</string>
+    <string name="registe_phone_number_hint">---------</string>
+    <string name="settings_hint_input_name">Name</string>
+    <string name="settings_hint_input_surname">Last Name (optional)</string>
+    <string name="toast_name_changed">Name changed!</string>
+    <string name="settings_hint_input_username">username</string>
+    <string name="settings_hint_input_bio">bio</string>
+    <string name="chat_text_message">Message</string>
+    <string name="clear_history">Clear History</string>
+    <string name="delete_chat">Delete Chat</string>
+
+    <plurals name="count_members">
+        <item quantity="one">%d Contact</item>
+        <item quantity="other">%d Contacts</item>
+    </plurals>
+</resources>

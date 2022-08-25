@@ -1,0 +1,98 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Telegram.Light" parent="MaterialDrawerTheme">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="popupTheme">@style/actionMenu</item>
+        <item name="android:colorBackground">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorPrimary
+        </item> <!--yozdigonda sakrab turadigon  chiziqni rangi -->
+        <!-- Secondary brand color. -->
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/material_drawer_background</item>
+        <item name="material_drawer_primary_text">@color/material_drawer_primary_text</item>
+        <item name="material_drawer_primary_icon">@color/material_drawer_primary_icon</item>
+        <item name="material_drawer_secondary_text">@color/material_drawer_secondary_text</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_divider</item>
+        <item name="material_drawer_selected">@color/material_drawer_selected
+        </item> <!-- Material 2 defines 12% alpha, primary color -->
+        <item name="material_drawer_selected_legacy">@color/material_drawer_selected
+        </item> <!-- Defines the color if legacy style (Material 1, is enabled) -->
+        <item name="material_drawer_selected_text">@color/material_drawer_selected_text</item>
+        <item name="material_drawer_header_selection_text">
+            @color/material_drawer_header_selection_text
+        </item>
+        <item name="material_drawer_header_selection_subtext">
+            @color/material_drawer_dark_header_selection_subtext
+        </item>
+        <item name="material_drawer_legacy_style">false
+        </item> <!-- Enables legacy Material 1 style -->
+
+    </style>
+
+    <style name="Theme.Telegram.Dark" parent="MaterialDrawerTheme">
+        <!-- Primary brand color. -->
+
+    </style>
+
+    <style name="actionMenu" parent="Theme.AppCompat.Light">
+        <item name="background">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="settingsButtons">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/app_small_margin</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/ripple_effect</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="normalText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">@dimen/app_margin</item>
+        <item name="android:textSize">@dimen/normalText</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="smallText">
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:layout_marginStart">@dimen/app_margin</item>
+        <item name="android:textSize">@dimen/smallText</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="seperator">
+        <item name="android:background">@color/colorGrey</item>
+        <item name="android:layout_marginStart">@dimen/app_margin</item>
+        <item name="android:layout_marginEnd">@dimen/app_margin</item>
+        <item name="android:layout_marginTop">@dimen/app_small_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+    <style name="mainToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+    <style name="editText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/app_margin</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">phone</item>
+        <item name="android:textColorHint">@color/colorGrey</item>
+        <item name="android:padding">@dimen/appPadding</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/normalText</item>
+    </style>
+</resources>
