@@ -14,13 +14,13 @@ const val WRITE_FILES = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 const val PERMISSION_REQUEST = 200
 
 
-fun checkPermission(permission: String): Boolean {    //////
+fun checkPermission(permission: String): Boolean {  // bu funksiya premission berilgan bo'lsa true aks holda permissionga izin so'redi
     return if (Build.VERSION.SDK_INT >= 23
         && ContextCompat.checkSelfPermission(
             APP_ACTIVITIY,
             permission
         ) != PackageManager.PERMISSION_GRANTED
-    ) {
+    ) {     //// agar permission berilmagan bo'lsa
         ActivityCompat.requestPermissions(APP_ACTIVITIY, arrayOf(permission), PERMISSION_REQUEST)
         false
     } else true

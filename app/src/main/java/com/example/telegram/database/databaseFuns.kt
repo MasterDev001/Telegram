@@ -47,8 +47,8 @@ inline fun initUser(crossinline function: () -> Unit) {
     REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID)
         .addListenerForSingleValueEvent(AppValueEventListener {     /////
             USER = it.getValue(UserModel::class.java) ?: UserModel()      //////
-            if (USER.usereame.isEmpty()) {
-                USER.usereame = CURRENT_UID
+            if (USER.username.isEmpty()) {
+                USER.username = CURRENT_UID
             }
             function()
         })
@@ -114,11 +114,11 @@ fun updateCurrentUsername(mNewUsername: String) {
 }
 
 private fun deleteOldUsername(mNewUsername: String) {
-    REF_DATABASE_ROOT.child(NODE_USERNAMES).child(USER.usereame).removeValue()
+    REF_DATABASE_ROOT.child(NODE_USERNAMES).child(USER.username).removeValue()
         .addOnSuccessListener {
             showToast("Username Changed")
             APP_ACTIVITIY.supportFragmentManager.popBackStack()
-            USER.usereame = mNewUsername
+            USER.username = mNewUsername
         }.addOnFailureListener { showToast(it.message.toString()) }
 }
 

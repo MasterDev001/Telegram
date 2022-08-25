@@ -1,7 +1,6 @@
 package com.example.telegram.utilits
 
 import android.media.MediaPlayer
-import com.example.telegram.database.REF_STORAGE_ROOT
 import com.example.telegram.database.getFileFromStorage
 import java.io.File
 import java.lang.Exception
@@ -13,14 +12,17 @@ class AppVoicePlayer {
 
     fun play(messageKey: String, fileUrl: String, function: () -> Unit) {
 
-        mFile = File(APP_ACTIVITIY.filesDir, messageKey)                                    // ////
-        if (mFile.exists() && mFile.length() > 0 && mFile.isFile) {
+        mFile = File(
+            APP_ACTIVITIY.filesDir,
+            messageKey
+        )  /// file yaratganga o'xshaydi app activity ni file directoryasiga messagekey nomli
+        if (mFile.exists() && mFile.length() > 0 && mFile.isFile) { //file mavjudligi va lengz >0 va file ligi catologemasligini tekshiryabdi
             startPlay {
                 function()
             }
         } else {
             mFile.createNewFile()
-            getFileFromStorage(mFile, fileUrl) {
+            getFileFromStorage(mFile, fileUrl) {                                  // / //
                 startPlay {
                     function()
                 }
@@ -30,10 +32,10 @@ class AppVoicePlayer {
 
     private fun startPlay(function: () -> Unit) {
         try {
-            mMediaPlayer.setDataSource(mFile.absolutePath)
-            mMediaPlayer.prepare()                                                            //// / / /
+            mMediaPlayer.setDataSource(mFile.absolutePath) //mfileni absolut pathini oladi yani mutloq yo'lini
+            mMediaPlayer.prepare()      //tayyorlayabdi
             mMediaPlayer.start()
-            mMediaPlayer.setOnCompletionListener {
+            mMediaPlayer.setOnCompletionListener {   //complete bolganda(tugaganda) ishlaydi
                 stop {
                     function()
                 }

@@ -18,7 +18,7 @@ data class CommonModel(
     var choice: Boolean = false
 
 ) {
-    override fun equals(other: Any?): Boolean {
+    override fun equals(other: Any?): Boolean {  //// boshqa klass yoki interfaceni Any tiplisini solishtiradi
         return (other as CommonModel).id == id
     }
 }

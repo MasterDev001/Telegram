@@ -25,7 +25,7 @@ class ChangeUserNameFragment : BaseChangeFragment(R.layout.fragment_change_user_
     override fun onResume() {
         super.onResume()
 
-        binding.settingsInputUsername.setText(USER.usereame)
+        binding.settingsInputUsername.setText(USER.username)
     }
 
     override fun change() {
