@@ -3,7 +3,7 @@ package com.example.telegram.utilits
 import androidx.recyclerview.widget.DiffUtil
 import com.example.telegram.model.CommonModel
 
-class DiffUtilCallback(
+class DiffUtilCallback(  // notifyitem changedni o'rniga ishlatiladi recycler viewmni optimallashtiradi
     private val oldList: List<CommonModel>,
     private val newList: List<CommonModel>
 ) : DiffUtil.Callback() {

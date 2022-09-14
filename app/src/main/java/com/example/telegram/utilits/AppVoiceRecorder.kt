@@ -28,16 +28,16 @@ class AppVoiceRecorder {
         mMediaRecorder.apply {
             reset()
             setAudioSource(MediaRecorder.AudioSource.DEFAULT)
-            setOutputFormat(MediaRecorder.OutputFormat.DEFAULT)
-            setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
-            setOutputFile(mFile.absolutePath)                                //// //  //
+            setOutputFormat(MediaRecorder.OutputFormat.DEFAULT) //jo'natish formati
+            setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT) //audioni encodi formatga o'xshash
+            setOutputFile(mFile.absolutePath) // chiqadigon file ni set qilyabdi mfile ni absolute adressiga
             prepare()
         }
 /*/            mMediaRecorder.reset()
 //            mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT)
 //            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT)
 //            mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
-//            mMediaRecorder.setOutputFile(mFile.absolutePath)                                //// //  //
+//            mMediaRecorder.setOutputFile(mFile.absolutePath)
 *///          mMediaRecorder.prepare()
     }
 
@@ -45,14 +45,17 @@ class AppVoiceRecorder {
         mFile = File(
             APP_ACTIVITIY.filesDir,  //kelyapturgan app contextni file papkasini qaytaradi
             mMessageKey    ///va unga message key nomi bilan file ochadi file creat bo'lganda
-        )                                  /// / / // /
+        )
         mFile.createNewFile()
     }
 
-    fun stopRecorder(onSuccess: (file: File, messageKey: String) -> Unit) {                 //// / / //
+    fun stopRecorder(onSuccess: (file: File, messageKey: String) -> Unit) {
         try {
             mMediaRecorder.stop()
-            onSuccess(mFile, mMessageKey)
+            onSuccess(
+                mFile,
+                mMessageKey
+            )// m file bilan mMessageKey ni stoprecorder ishlatiladigon joyga jo'natyabdi
         } catch (e: Exception) {
             showToast(e.message.toString())
             mFile.delete()

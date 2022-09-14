@@ -24,10 +24,7 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
     private var mListItems = listOf<CommonModel>()
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         mBinding = FragmentMainListBinding.inflate(inflater, container, false)
         return mBinding.root
@@ -67,7 +64,7 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
 
                 ////season 3
                 REF_DATABASE_ROOT.child(NODE_GROUPS).child(commonModel.id).child(NODE_MESSAGES)
-                    .limitToLast(1)            // // // /
+                    .limitToLast(1)  //  oxirgi bittasini olyabdi
                     .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot2 ->
                         val tempList = dataSnapshot2.children.map { it.getCommonModel() }
 
@@ -89,7 +86,7 @@ class MainListFragment : Fragment(R.layout.fragment_main_list) {
                 val newModel = dataSnapshot1.getCommonModel()
 
                 ////season 3
-                mRefMessages.child(commonModel.id).limitToLast(1)            // // // /
+                mRefMessages.child(commonModel.id).limitToLast(1)        //oxirgi bittasini olyabdi
                     .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot2 ->
                         val tempList = dataSnapshot2.children.map { it.getCommonModel() }
 

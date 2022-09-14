@@ -73,7 +73,7 @@ class HolderFileMessage(view: View) : RecyclerView.ViewHolder(view), MessageHold
         }
         val file =
             File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),  // // /
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),//download packageni olyabturgang ao'xshaydi
                 view.text
             )
         Log.d("TAG", "click: ${file}")

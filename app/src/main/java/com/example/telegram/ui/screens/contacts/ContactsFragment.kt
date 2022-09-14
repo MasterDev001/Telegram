@@ -50,7 +50,7 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
         val options = FirebaseRecyclerOptions.Builder<CommonModel>()
             .setQuery(mRefContacts, CommonModel::class.java).build()
 
-        mAdapter = object : FirebaseRecyclerAdapter<CommonModel, ContactsHolder>(options) {
+        mAdapter = object : FirebaseRecyclerAdapter<CommonModel, ContactsHolder>(options) {      ///
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsHolder {
                 return ContactsHolder(
                     LayoutInflater.from(parent.context)
@@ -65,23 +65,25 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
             ) {
                 mRefUsers = REF_DATABASE_ROOT.child(NODE_USERS).child(model.id)
 
-                mRefUsersListener = AppValueEventListener {    /// // / // / /
+                mRefUsersListener = AppValueEventListener {
                     val contact = it.getCommonModel()
 
-                    if (contact.fullname.isEmpty()){
-                    holder.name.text = model.fullname}
-                    else { holder.name.text = contact.fullname}
+                    if (contact.fullname.isEmpty()) {
+                        holder.name.text = model.fullname
+                    } else {
+                        holder.name.text = contact.fullname
+                    }
 
                     holder.status.text = contact.state
                     holder.photo.photoDownloadAndSet(contact.photoUrl)
                     holder.itemView.setOnClickListener { replaceFragment(SingleChatFragment(model)) }
                 }
                 mRefUsers.addListenerForSingleValueEvent(mRefUsersListener)
-                mapListeners[mRefUsers] = mRefUsersListener         //  . ... . / /
+                mapListeners[mRefUsers] = mRefUsersListener //
             }
         }
         mRecyclerView.adapter = mAdapter
-        mAdapter.startListening()
+        mAdapter.startListening()//adaptrerni ishga tushiryabdi
     }
 
     class ContactsHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -95,7 +97,7 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
 
         mAdapter.stopListening()
         mapListeners.forEach {
-            it.key.removeEventListener(it.value)
+            it.key.removeEventListener(it.value)//it==map keyi mRefUsers valuesi mRefUsersListener
         }
     }
 }

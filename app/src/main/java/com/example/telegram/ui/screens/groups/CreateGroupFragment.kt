@@ -30,7 +30,7 @@ class CreateGroupFragment(private val listContacts: List<CommonModel>) :
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = FragmentCreateGroupBinding.inflate(inflater, container, false)
         return mBinding.root
     }
@@ -50,7 +50,7 @@ class CreateGroupFragment(private val listContacts: List<CommonModel>) :
                 }
             }
         }
-        mBinding.createGroupInputName.requestFocus()
+        mBinding.createGroupInputName.requestFocus() //srazi editga tayyorledi edit bo'lm,asaxam yonib turadi
         mBinding.createGroupCount.text = getPlurals(listContacts.size)                    //// / / /
         mBinding.createGroupPhoto.setOnClickListener { addPhoto() }
     }
@@ -60,18 +60,18 @@ class CreateGroupFragment(private val listContacts: List<CommonModel>) :
         mAdapter = AddContactsAdapter()
         mRecyclerView.adapter = mAdapter
 
-        listContacts.forEach { mAdapter.updateListItems(it) }                         /// / / // /
+        listContacts.forEach { mAdapter.updateListItems(it) }
     }
 
-    private val cropImage = registerForActivityResult(CropImageContract()) { result ->
-        mUri = result.originalUri
-        mBinding.createGroupPhoto.setImageURI(mUri)
+    private val cropImage = registerForActivityResult(CropImageContract()) { result ->  //result rasm
+        mUri = result.originalUri//orginal|Uri kesishtayorlangan rasm urisi
+        mBinding.createGroupPhoto.setImageURI(mUri)//iimageni urisi bo'yicha set qiladi
     }
 
     private fun addPhoto() {
         cropImage.launch(
             options {
-                setGuidelines(CropImageView.Guidelines.ON)
+                setGuidelines(CropImageView.Guidelines.ON)//rasm kesibturgandagi chiziqlarni ko'rsatyabdi
                 setCropShape(CropImageView.CropShape.OVAL)
                 setRequestedSize(600, 600)
                 setAspectRatio(1, 1)

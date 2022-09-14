@@ -12,10 +12,7 @@ class AppVoicePlayer {
 
     fun play(messageKey: String, fileUrl: String, function: () -> Unit) {
 
-        mFile = File(
-            APP_ACTIVITIY.filesDir,
-            messageKey
-        )  /// file yaratganga o'xshaydi app activity ni file directoryasiga messagekey nomli
+        mFile = File(APP_ACTIVITIY.filesDir, messageKey)  /// fileni olyabdi app activity directoriyasidjylashgan message key nomli file ni
         if (mFile.exists() && mFile.length() > 0 && mFile.isFile) { //file mavjudligi va lengz >0 va file ligi catologemasligini tekshiryabdi
             startPlay {
                 function()

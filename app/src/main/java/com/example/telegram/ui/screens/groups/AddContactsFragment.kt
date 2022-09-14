@@ -46,10 +46,11 @@ class AddContactsFragment : BaseFragment(R.layout.fragment_add_contacts) {
         }
     }
 
-    private fun initRecyclerView() {                                             // / // / // / //
+    private fun initRecyclerView() {                                          ///// //  // // //
         mRecyclerView = mBinding.addContactsRecyclerView
         mAdapter = AddContactsAdapter()
 
+        // https://firebase.google.com/docs/database/android/read-and-write?hl=tr#kotlin+ktx_1
         ////season 1
         mRefContactsList.addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
             mListItems = dataSnapshot.children.map { it.getCommonModel() }

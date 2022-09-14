@@ -10,7 +10,7 @@ open class BaseChangeFragment(layout: Int) : Fragment(layout) {
 
     override fun onStart() {
         super.onStart()
-        setHasOptionsMenu(true)
+        setHasOptionsMenu(true)  //tepadagi 3 talik menuni chiqaradi
         APP_ACTIVITIY.mAppDrawer.disableDrawer()
         hideKeyboard()
     }

@@ -30,7 +30,7 @@ class EnterCodeFragment(val phoneNumber: String, val id: String) :
 
         APP_ACTIVITIY.title = phoneNumber
 
-        binding.registerInputCode.addTextChangedListener(AppTextWatcher {  ////
+        binding.registerInputCode.addTextChangedListener(AppTextWatcher {                     ////
             val string = binding.registerInputCode.text.toString()
             if (string.length == 6) {
                 enterCode()
@@ -40,9 +40,9 @@ class EnterCodeFragment(val phoneNumber: String, val id: String) :
 
     fun enterCode() {
         val code = binding.registerInputCode.text.toString()
-        val credential = PhoneAuthProvider.getCredential(id, code) /////
+        val credential = PhoneAuthProvider.getCredential(id, code)
 
-        AUTH.signInWithCredential(credential).addOnCompleteListener { /////
+        AUTH.signInWithCredential(credential).addOnCompleteListener {                         /////
             if (it.isSuccessful) {
                 val uid = AUTH.currentUser?.uid.toString()
 

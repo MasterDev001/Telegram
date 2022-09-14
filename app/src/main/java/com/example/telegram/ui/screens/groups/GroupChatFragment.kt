@@ -66,7 +66,7 @@ class GroupChatFragment(private val group: CommonModel) :
         initToolbar()
         initRecyclerView()
     }
-
+//uytfuyt6frui
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     private fun initFields() {
         setHasOptionsMenu(true)
@@ -76,7 +76,7 @@ class GroupChatFragment(private val group: CommonModel) :
         mAppVoiceRecorder = AppVoiceRecorder()
         mSwipeRefreshLayout = mBinding.chatSwipeRefresh
         mLayoutManager = LinearLayoutManager(this.context)
-        mBinding.chatInputMessage.addTextChangedListener(AppTextWatcher {      //// text change bolganda esitadi va ichi ishga tushadi
+        mBinding.chatInputMessage.addTextChangedListener(AppTextWatcher {  /// text change bolganda esitadi va ichi ishga tushadi
             val string = mBinding.chatInputMessage.text.toString()
             if (string.isEmpty() || string == "Recording") {
                 mBinding.chatBtnSendMessage.visibility = View.GONE
@@ -90,11 +90,11 @@ class GroupChatFragment(private val group: CommonModel) :
         })
         mBinding.chatBtnAttach.setOnClickListener { attach() }
 
-        CoroutineScope(Dispatchers.IO).launch {                                    ///// / // / /
+        CoroutineScope(Dispatchers.IO).launch { //boshqa oqimda bojaryabdi optimallsahtirish uchhun
 
-            mBinding.chatBtnVoice.setOnTouchListener { v, event ->                           ////// /// / / /
+            mBinding.chatBtnVoice.setOnTouchListener { v, event ->
                 if (checkPermission(RECORD_AUDIO)) {
-                    if (event.action == MotionEvent.ACTION_DOWN) {        //// bosilganda Record qiladi
+                    if (event.action == MotionEvent.ACTION_DOWN) { //// bosilganda Record qiladi
                         mBinding.chatInputMessage.setText("Recording")
                         mBinding.chatBtnVoice.setColorFilter(   /// btn voice bosilganda rangi colorPrimaryga o'zgaradi
                             ContextCompat.getColor(
@@ -125,6 +125,7 @@ class GroupChatFragment(private val group: CommonModel) :
 
     private fun attach() {
         mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+
         view?.findViewById<ImageView>(R.id.btn_attach_file)?.setOnClickListener { attachFile() }
         view?.findViewById<ImageView>(R.id.btn_attach_image)?.setOnClickListener { attachImage() }
 
@@ -151,7 +152,8 @@ class GroupChatFragment(private val group: CommonModel) :
         mAdaptor = GroupChatAdaptor()
         mRecyclerView.adapter = mAdaptor
         mRecyclerView.layoutManager = mLayoutManager
-        mRecyclerView.setHasFixedSize(true)                                           ////// / //
+        mRecyclerView.setHasFixedSize(true)
+        // bu yurining ideasi
         mRecyclerView.isNestedScrollingEnabled = false                                /// // / //
 
         mRefMessages = REF_DATABASE_ROOT.child(NODE_GROUPS)
@@ -259,8 +261,7 @@ class GroupChatFragment(private val group: CommonModel) :
             }
         }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {    // / // / /
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {//
         super.onActivityResult(requestCode, resultCode, data)
 //        if (requestCode== PICK_FILE_REQUEST_CODE){
         val uri = data?.data

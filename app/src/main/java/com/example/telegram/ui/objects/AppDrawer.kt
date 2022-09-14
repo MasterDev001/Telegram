@@ -5,8 +5,7 @@ import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED
-import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED
+import androidx.drawerlayout.widget.DrawerLayout.*
 import com.example.telegram.R
 import com.example.telegram.database.USER
 import com.example.telegram.ui.screens.contacts.ContactsFragment
@@ -39,9 +38,9 @@ class AppDrawer {
     }
 
     fun disableDrawer() {
-        mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = false
-        APP_ACTIVITIY.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        mDrawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_CLOSED)
+        mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = false//menuni 3 talik iconini ko'rsatadi
+        APP_ACTIVITIY.supportActionBar?.setDisplayHomeAsUpEnabled(true)//nazad strelkasini yoqadi
+        mDrawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_CLOSED)//yondan tortisa chiqishiini false qolyabdi
         APP_ACTIVITIY.mToolbar.setNavigationOnClickListener {
             APP_ACTIVITIY.supportFragmentManager.popBackStack()
         }
@@ -59,9 +58,9 @@ class AppDrawer {
     private fun createDrawer() {//toolbardagi chap tomon menu(Drawer) yaratadi
         mDrawer = DrawerBuilder()
             .withActivity(APP_ACTIVITIY)
-            .withAccountHeader(mHeader)
+            .withAccountHeader(mHeader)//boshligi
             .withActionBarDrawerToggle(true)//qisqartirib uzaytirish
-            .withSelectedItem(-1)
+            .withSelectedItem(-1)//default tanlangan item id si berilyabdi
             .withToolbar(APP_ACTIVITIY.mToolbar)
             .addDrawerItems(
                 PrimaryDrawerItem().withIdentifier(100)
@@ -153,7 +152,7 @@ class AppDrawer {
         mHeader.updateProfile(mCurrentProfile)
     }
 
-    private fun initLoader() {
+    private fun initLoader() {//o'zni funksiyasi loaderlarni init qiolyabdi
         DrawerImageLoader.init(object : AbstractDrawerImageLoader() {
             override fun set(imageView: ImageView, uri: Uri, placeholder: Drawable) {
                 imageView.photoDownloadAndSet(uri.toString())

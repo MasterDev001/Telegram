@@ -52,16 +52,16 @@ class HolderVoiceMessage(view: View) : RecyclerView.ViewHolder(view), MessageHol
             chatUserBtnPlay.setOnClickListener {
                 chatUserBtnPlay.visibility = View.GONE
                 chatUserBtnStop.visibility = View.VISIBLE
+                play(view) {
+                    chatUserBtnPlay.visibility = View.VISIBLE
+                    chatUserBtnStop.visibility = View.GONE
+                }
                 chatUserBtnStop.setOnClickListener {
                     stop {
                         chatUserBtnStop.setOnTouchListener(null)                          ///// //
                         chatUserBtnPlay.visibility = View.VISIBLE
                         chatUserBtnStop.visibility = View.GONE
                     }
-                }
-                play(view) {
-                    chatUserBtnPlay.visibility = View.VISIBLE
-                    chatUserBtnStop.visibility = View.GONE
                 }
             }
         } else {

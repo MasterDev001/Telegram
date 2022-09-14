@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
         setSupportActionBar(mToolbar)//action barni toolbarga o'zgartiryapti
-        if (AUTH.currentUser != null) {   ///
+        if (AUTH.currentUser != null) {
             mAppDrawer.create()
             replaceFragment(MainListFragment(), false)
         } else {
@@ -62,8 +62,8 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
         AppState.updateState(AppState.OFFLINE)
     }
-
-    override fun onRequestPermissionsResult(  // /// / / /
+                                                                                        ///// / / / /
+    override fun onRequestPermissionsResult( //adashmasam requsest perrmissinog ruxsat soredi =
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(
                 APP_ACTIVITIY,
                 READ_CONTACTS
-            ) == PackageManager.PERMISSION_GRANTED
+            ) == PackageManager.PERMISSION_GRANTED // agar read contacts permissioni berilgan bo'lsa initcontacts() ishlidid
         ) {
             initContacts()
         }

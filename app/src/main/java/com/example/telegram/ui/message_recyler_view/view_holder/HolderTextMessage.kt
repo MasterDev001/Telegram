@@ -28,6 +28,7 @@ class HolderTextMessage(view: View) : RecyclerView.ViewHolder(view), MessageHold
             chatUserMessageTime.text =
                 view.timeStamp.asTime()
         } else {
+
             blockUserMessage.visibility = View.GONE
             blockReceivedMessage.visibility = View.VISIBLE
             chatReceivedMessage.text = view.text

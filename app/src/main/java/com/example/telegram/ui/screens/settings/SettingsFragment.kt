@@ -35,7 +35,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         binding.settingsBio.text = USER.bio
         binding.settingsPhoneNumber.text = USER.phone
         binding.settingsFullName.text = USER.fullname
-        binding.settingsUsername.text = USER.username
+        binding.settingsUsername.text = USER.usereame
         binding.settingsStatus.text = USER.state
         binding.settingsBtnChangeUsername.setOnClickListener {
             replaceFragment(ChangeUserNameFragment())

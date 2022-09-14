@@ -47,8 +47,8 @@ inline fun initUser(crossinline function: () -> Unit) {
     REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID)
         .addListenerForSingleValueEvent(AppValueEventListener {     /////
             USER = it.getValue(UserModel::class.java) ?: UserModel()      //////
-            if (USER.username.isEmpty()) {
-                USER.username = CURRENT_UID
+            if (USER.usereame.isEmpty()) {
+                USER.usereame = CURRENT_UID
             }
             function()
         })
@@ -83,6 +83,7 @@ fun DataSnapshot.getUserModel(): UserModel =                         //////   / 
     this.getValue(UserModel::class.java) ?: UserModel()
 
 fun sendMessage(message: String, receivingUserID: String, typeText: String, function: () -> Unit) {
+
     val refDialogUser = "$NODE_MESSAGES/$CURRENT_UID/$receivingUserID"
     val refDialogReceivingUser = "$NODE_MESSAGES/$receivingUserID/$CURRENT_UID"
     val messageKey = REF_DATABASE_ROOT.child(refDialogUser).push().key
@@ -114,11 +115,11 @@ fun updateCurrentUsername(mNewUsername: String) {
 }
 
 private fun deleteOldUsername(mNewUsername: String) {
-    REF_DATABASE_ROOT.child(NODE_USERNAMES).child(USER.username).removeValue()
+    REF_DATABASE_ROOT.child(NODE_USERNAMES).child(USER.usereame).removeValue()
         .addOnSuccessListener {
             showToast("Username Changed")
             APP_ACTIVITIY.supportFragmentManager.popBackStack()
-            USER.username = mNewUsername
+            USER.usereame = mNewUsername
         }.addOnFailureListener { showToast(it.message.toString()) }
 }
 
@@ -190,7 +191,8 @@ fun uploadFileToStorage(
 }
 
 fun getFileFromStorage(mFile: File, fileUrl: String, function: () -> Unit) {            ///// / /
-    val path = REF_STORAGE_ROOT.storage.getReferenceFromUrl(fileUrl)
+    val path =
+        REF_STORAGE_ROOT.storage.getReferenceFromUrl(fileUrl)//storage da Urlg qarab yo'nalishini olyabdioo
     path.getFile(mFile)
         .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
@@ -290,7 +292,7 @@ fun addGroupToMainList(                                                         
 
     listContacts.forEach {
         path.child(it.id).child(map[CHILD_ID].toString()).updateChildren(map)
-    }
+    }//gruppa yaratyabturganda o'zini qo'shmedi shuning uchun o'zini pastda alohida qo'shyabdi
     path.child(CURRENT_UID).child(map[CHILD_ID].toString()).updateChildren(map)
         .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
@@ -309,7 +311,7 @@ fun sendMessageToGroup(message: String, groupID: String, typeText: String, funct
     mapMessage[CHILD_TIMESTAMP] = ServerValue.TIMESTAMP
 
     REF_DATABASE_ROOT.child(refMessages).child(messageKey.toString())
-        .updateChildren(mapMessage  )
+        .updateChildren(mapMessage)
         .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
 

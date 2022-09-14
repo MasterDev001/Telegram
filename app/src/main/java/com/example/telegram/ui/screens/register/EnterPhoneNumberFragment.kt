@@ -84,7 +84,7 @@ class EnterPhoneNumberFragment : Fragment() {
 class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) {
 
     private lateinit var mPhoneNumber: String
-    private lateinit var mCallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private lateinit var mCallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks    // / / /
     private lateinit var mBinding: FragmentEnterPhoneNumberBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -96,7 +96,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     }
 
     override fun onStart() {
-        super.onStart()
+        super.onStart()                                                               // / / / / //
         mCallback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
@@ -115,7 +115,6 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
                 replaceFragment(EnterCodeFragment(mPhoneNumber, id))
                 Log.d("TAG", "onVerificationFailed: $id")
-
             }
         }
         mBinding.registerBtnNext.setOnClickListener { sendCode() }
@@ -131,7 +130,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
 
     private fun authUser() {
         mPhoneNumber = mBinding.registrInputPhoneNumber.text.toString()
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(                           /// / / / /
             mPhoneNumber,
             60,
             TimeUnit.SECONDS,
