@@ -9,3 +9,4 @@ data class UserModel(
     var phone: String = "",
     var photoUrl: String = "empty"
 )
+
