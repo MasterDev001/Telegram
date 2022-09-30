@@ -198,7 +198,6 @@ class SingleChatFragment(private val contact: CommonModel) :
         mRefMessages.limitToLast(mCountMessages).addChildEventListener(mMessagesListener)
     }
 
-
     private fun initToolbar() {
         mToolbarInfo = APP_ACTIVITIY.mToolbar
         mToolbarInfo.findViewById<ConstraintLayout>(R.id.toolbar_info1).visibility = View.VISIBLE

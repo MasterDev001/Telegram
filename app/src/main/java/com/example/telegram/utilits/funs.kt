@@ -54,6 +54,7 @@ fun ImageView.photoDownloadAndSet(url: String) {
     Glide.with(this)
         .load(url)
         .fitCenter()
+        .centerCrop()
         .placeholder(R.drawable.ic_profile)// rasm yuklangincha o'rniga chiqadigon rasm
         .into(this)
 }

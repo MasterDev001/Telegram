@@ -77,8 +77,6 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
                         USER.photoUrl = it
                         showToast("Image Changed!")
                         APP_ACTIVITIY.mAppDrawer.updateHeader()
-
-
                     }
                 }
             }
